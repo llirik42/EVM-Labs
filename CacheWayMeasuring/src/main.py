@@ -1,25 +1,35 @@
-import matplotlib.pyplot
-from matplotlib import ticker
+from matplotlib.ticker import MultipleLocator
+from matplotlib.pyplot import subplots
+from matplotlib.pyplot import show
 
-with open('C:\\CLionProjects\\CacheWayMeasuring\\out') as file:
-    pairs = [line.rstrip().split() for line in file]
+DEFAULT_PATH = 'C:\\CLionProjects\\CacheWayMeasuring\\l'
+FILES_COUNT = 3
 
-x = []
-y = []
 
-for pair in pairs:
-    x.append(int(pair[0]))
-    y.append(int(pair[1]))
+def draw(index: int) -> None:
+    with open(f'{DEFAULT_PATH}{index}') as file:
+        pairs = [line.rstrip().split() for line in file]
 
-fig, ax = matplotlib.pyplot.subplots()
+    x = []
+    y = []
 
-ax.plot(x, y, label=' ', linewidth=2, color='r')
+    for pair in pairs:
+        x.append(int(pair[0]))
+        y.append(int(pair[1]))
 
-ax.xaxis.set_major_locator(ticker.MultipleLocator(1))
-ax.yaxis.set_major_locator(ticker.MultipleLocator(2))
+    fig, ax = subplots()
 
-ax.set_xlabel('Число фрагментов')
-ax.set_ylabel('Время чтения элемента в тактах')
-ax.legend()
+    ax.plot(x, y, label=f'L{index}', linewidth=2, color='k', marker='*')
 
-matplotlib.pyplot.show()
+    ax.xaxis.set_major_locator(MultipleLocator(1))
+    ax.yaxis.set_major_locator(MultipleLocator(2))
+
+    ax.set_xlabel('Число фрагментов')
+    ax.set_ylabel('Время чтения элемента в тактах')
+    ax.legend()
+
+
+for i in range(1, FILES_COUNT + 1):
+    draw(i)
+
+show()
