@@ -1,4 +1,4 @@
-* [Задание](https://ssd.sscc.ru/sites/default/files/content/attach/310/computerlab7.pdf)
+[Задание](https://ssd.sscc.ru/sites/default/files/content/attach/310/computerlab7.pdf)
 
 **Команда для компиляции на кафедральном сервере**
 
