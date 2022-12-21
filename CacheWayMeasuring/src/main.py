@@ -2,7 +2,7 @@ from matplotlib.ticker import MultipleLocator
 from matplotlib.pyplot import subplots
 from matplotlib.pyplot import show
 
-DEFAULT_PATH = 'C:\\CLionProjects\\CacheWayMeasuring\\l'
+DEFAULT_PATH = '../;'
 FILES_COUNT = 3
 
 
